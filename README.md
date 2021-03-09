@@ -1,1 +1,1 @@
-# Magento2
+# Ethereon
