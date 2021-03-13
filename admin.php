@@ -58,7 +58,7 @@
     <div class="col-sm-3">
        <div class="panel panel-box clearfix">
          <div class="panel-icon pull-left bg-yellow">
-          <i class="glyphicon glyphicon-usd"></i>
+          <img src="libs/images/soles.svg"/>
         </div>
         <div class="panel-value pull-right">
           <h2 class="margin-top"> <?php  echo $c_sale['total']; ?></h2>
@@ -69,11 +69,11 @@
     <div class="col-sm-3">
        <div class="panel panel-box clearfix">
          <div class="panel-icon pull-left bg-green">
-          <i class="glyphicon glyphicon-usd"></i>
+          <img src="libs/images/soles.svg"/>
         </div>
         <div class="panel-value pull-right">
           <h2 class="margin-top"> <?php  echo $s_buy['total']; ?></h2>
-          <p class="text-muted">compras</p>
+          <p class="text-muted">Inversion Total</p>
         </div>
        </div>
     </div>

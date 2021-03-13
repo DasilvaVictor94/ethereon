@@ -26,14 +26,17 @@
                 <th> Descripción </th>
                 <th class="text-center" style="width: 10%;"> Categoría </th>
                 <th class="text-center" style="width: 10%;"> Stock </th>
+                <th class="text-center" style="width: 10%;"> Compras </th>
                 <th class="text-center" style="width: 10%;"> Precio de compra </th>
                 <th class="text-center" style="width: 10%;"> Precio de venta </th>
+                <th class="text-center" style="width: 10%;"> Inversion</th>
                 <th class="text-center" style="width: 10%;"> Agregado </th>
                 <th class="text-center" style="width: 100px;"> Acciones </th>
               </tr>
             </thead>
             <tbody>
               <?php foreach ($products as $product):?>
+              <?php $c = inversion($product['name'])?>
               <tr>
                 <td class="text-center"><?php echo count_id();?></td>
                 <td>
@@ -46,8 +49,10 @@
                 <td> <?php echo remove_junk($product['name']); ?></td>
                 <td class="text-center"> <?php echo remove_junk($product['categorie']); ?></td>
                 <td class="text-center"> <?php echo remove_junk($product['quantity']); ?></td>
+                <td class="text-center"> <?php echo remove_junk($product['cantidad']); ?></td>
                 <td class="text-center"> <?php echo remove_junk($product['buy_price']); ?></td>
                 <td class="text-center"> <?php echo remove_junk($product['sale_price']); ?></td>
+                <td class="text-center"> <?php echo $c['total']; ?></td>
                 <td class="text-center"> <?php echo read_date($product['date']); ?></td>
                 <td class="text-center">
                   <div class="btn-group">

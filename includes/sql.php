@@ -210,7 +210,7 @@ function tableExists($table){
    /*--------------------------------------------------------------*/
   function join_product_table(){
      global $db;
-     $sql  =" SELECT p.id,p.name,p.quantity,p.buy_price,p.sale_price,p.media_id,p.date,c.name";
+     $sql  =" SELECT p.id,p.name,p.quantity,p.buy_price,p.sale_price,p.media_id,p.date,p.cantidad,c.name";
     $sql  .=" AS categorie,m.file_name AS image";
     $sql  .=" FROM products p";
     $sql  .=" LEFT JOIN categories c ON c.id = p.categorie_id";
@@ -355,10 +355,19 @@ function totalInversion($table){
   global $db;
   if(tableExists($table))
   {
-    $sql    = "SELECT SUM(buy_price) AS total FROM ".$db->escape($table);
+    $sql    = "SELECT SUM(buy_price * cantidad) AS total FROM ".$db->escape($table);
     $result = $db->query($sql);
      return($db->fetch_assoc($result));
   }
+}
+
+function inversion($name){
+  System.out.print($name);
+  global $db;
+    $sql    = "SELECT (buy_price * cantidad) AS total FROM products WHERE name = '{$name}'";
+    $result = $db->query($sql);
+     return($db->fetch_assoc($result));
+
 }
 
 ?>
