@@ -20,7 +20,9 @@
       <div class="logo pull-left"> ETHEREON - Inventory </div>
       <div class="header-content">
       <div class="header-date pull-left">
-        <strong><?php echo date("d/m/Y  g:i a");?></strong>
+        <strong><?php
+        date_default_timezone_set('America/Lima');
+        echo date("d/m/Y  g:i a");?></strong>
       </div>
       <div class="pull-right clearfix">
         <ul class="info-menu list-inline list-unstyled">
