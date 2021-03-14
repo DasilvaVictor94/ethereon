@@ -12,7 +12,8 @@
  $c_user          = count_by_id('users');
  $products_sold   = find_higest_saleing_product('10');
  $recent_products = find_recent_product_added('5');
- $recent_sales    = find_recent_sale_added('5')
+ $recent_sales    = find_recent_sale_added('5');
+ $t_sales         = totalVentas('sales');
 ?>
 <?php include_once('layouts/header.php'); ?>
 
@@ -22,28 +23,6 @@
    </div>
 </div>
   <div class="row">
-    <div class="col-sm-3">
-       <div class="panel panel-box clearfix">
-         <div class="panel-icon pull-left bg-green">
-          <i class="glyphicon glyphicon-user"></i>
-        </div>
-        <div class="panel-value pull-right">
-          <h2 class="margin-top"> <?php  echo $c_user['total']; ?> </h2>
-          <p class="text-muted">Usuarios</p>
-        </div>
-       </div>
-    </div>
-    <div class="col-sm-3">
-       <div class="panel panel-box clearfix">
-         <div class="panel-icon pull-left bg-red">
-          <i class="glyphicon glyphicon-list"></i>
-        </div>
-        <div class="panel-value pull-right">
-          <h2 class="margin-top"> <?php  echo $c_categorie['total']; ?> </h2>
-          <p class="text-muted">Categorías</p>
-        </div>
-       </div>
-    </div>
     <div class="col-sm-3">
        <div class="panel panel-box clearfix">
          <div class="panel-icon pull-left bg-blue">
@@ -74,6 +53,17 @@
         <div class="panel-value pull-right">
           <h2 class="margin-top"> <?php  echo $s_buy['total']; ?></h2>
           <p class="text-muted">Inversion Total</p>
+        </div>
+       </div>
+    </div>
+    <div class="col-sm-3">
+       <div class="panel panel-box clearfix">
+         <div class="panel-icon pull-left bg-green">
+          <img src="libs/images/soles.svg"/>
+        </div>
+        <div class="panel-value pull-right">
+          <h2 class="margin-top"> <?php  echo $t_sales['total']; ?></h2>
+          <p class="text-muted">Ventas Total</p>
         </div>
        </div>
     </div>

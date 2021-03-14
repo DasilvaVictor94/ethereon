@@ -362,12 +362,21 @@ function totalInversion($table){
 }
 
 function inversion($name){
-  System.out.print($name);
   global $db;
     $sql    = "SELECT (buy_price * cantidad) AS total FROM products WHERE name = '{$name}'";
     $result = $db->query($sql);
      return($db->fetch_assoc($result));
 
+}
+
+function totalVentas($table){
+  global $db;
+  if(tableExists($table))
+  {
+    $sql    = "SELECT SUM(price) AS total FROM ".$db->escape($table);
+    $result = $db->query($sql);
+     return($db->fetch_assoc($result));
+  }
 }
 
 ?>
