@@ -49,6 +49,16 @@
   </li>
   <li>
     <a href="#" class="submenu-toggle">
+      <i class="glyphicon glyphicon-th-list"></i>
+       <span>Promociones</span>
+      </a>
+      <ul class="nav submenu">
+         <li><a href="descuentos.php">Administrar promociones</a> </li>
+         <li><a href="add_descuento.php">Agregar promocion</a> </li>
+     </ul>
+  </li>
+  <li>
+    <a href="#" class="submenu-toggle">
       <i class="glyphicon glyphicon-signal"></i>
        <span>Reporte de ventas</span>
       </a>

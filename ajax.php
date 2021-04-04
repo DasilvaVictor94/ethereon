@@ -1,6 +1,7 @@
 <?php
   require_once('includes/load.php');
   if (!$session->isUserLoggedIn(true)) { redirect('index.php', false);}
+  $all_descuentos = find_all('descuentos');
 ?>
 
 <?php
@@ -43,6 +44,14 @@
           $html  .= "</td>";
           $html .= "<td id=\"s_qty\">";
           $html .= "<input type=\"text\" class=\"form-control\" name=\"quantity\" value=\"1\">";
+          $html  .= "</td>";
+          $html .= "<td id=\"des\">";
+          $html .= "<select id=\"desc\" class=\"form-control\" name=\"descuentos\">";
+          $html .= "<option value=\"1\">Selecciona un pack</option>";
+          foreach ($all_descuentos as $des){
+          $html .= "<option value=\"{$des['descuento']}\">".$des['name']."</option>";
+          }
+          $html  .= "</select>";
           $html  .= "</td>";
           $html  .= "<td>";
           $html  .= "<input type=\"text\" class=\"form-control\" name=\"total\" value=\"{$result['sale_price']}\">";

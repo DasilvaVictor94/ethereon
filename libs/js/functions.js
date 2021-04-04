@@ -67,10 +67,11 @@ function suggetion() {
       e.preventDefault();
   });
   function total(){
-    $('#product_info input').change(function(e)  {
+    $('#product_info select').change(function(e)  {
             var price = +$('input[name=price]').val() || 0;
             var qty   = +$('input[name=quantity]').val() || 0;
-            var total = qty * price ;
+            var descuento = +$('#desc').val() || 0;
+            var total = qty * price * descuento ;
                 $('input[name=total]').val(total.toFixed(2));
     });
   }
