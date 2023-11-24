@@ -12,9 +12,9 @@
 |
 |
 */
-  define( 'DB_HOST', 'localhost' );          // Set database host
-  define( 'DB_USER', 'root' );             // Set database user
-  define( 'DB_PASS', '123' );             // Set database password
-  define( 'DB_NAME', 'ethereon' );        // Set database name
+  define( 'DB_HOST', '127.0.0.1' );          // Set database host
+  define( 'DB_USER', 'admin' );             // Set database user
+  define( 'DB_PASS', 'Ethereon123' );             // Set database password
+  define( 'DB_NAME', 'prueba' );        // Set database name
 
 ?>

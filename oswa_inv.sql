@@ -67,6 +67,7 @@ CREATE TABLE `products` (
   `id` int(11) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
   `quantity` varchar(50) DEFAULT NULL,
+  `cantidad` varchar(50) DEFAULT NULL,
   `buy_price` decimal(25,2) DEFAULT NULL,
   `sale_price` decimal(25,2) NOT NULL,
   `categorie_id` int(11) UNSIGNED NOT NULL,
