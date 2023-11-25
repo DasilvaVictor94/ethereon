@@ -144,6 +144,52 @@ INSERT INTO `user_groups` (`id`, `group_name`, `group_level`, `group_status`) VA
 (2, 'Special', 2, 0),
 (3, 'User', 3, 1);
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `district`
+--
+
+CREATE TABLE `descuentos` (
+  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `descuento` decimal(25,2) NOT NULL,
+  `date` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `district`
+--
+
+CREATE TABLE `districts` (
+  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `district_name` varchar(50) NOT NULL,
+  `price_delivery` decimal(25,2) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `clients`
+--
+
+CREATE TABLE `clients` (
+  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `full_name` varchar(150) NOT NULL,
+  `dni` varchar(30) NOT NULL,
+  `phone` varchar(30) NOT NULL,
+  `address` varchar(150) NOT NULL,
+  `district_id` int(11) UNSIGNED,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_district`
+    FOREIGN KEY (`district_id`)
+    REFERENCES `districts` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Índices para tablas volcadas
 --

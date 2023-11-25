@@ -74,7 +74,8 @@
        <span>Delivery</span>
       </a>
       <ul class="nav submenu">
-        <li><a href="sales_report.php">Regiones delivery</a></li>
+        <li><a href="districts.php">Administrar delivery</a></li>
+        <li><a href="add_districts.php">Agregar delivery</a> </li>
       </ul>
   </li>
 </ul>
