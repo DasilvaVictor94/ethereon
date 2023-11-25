@@ -250,11 +250,19 @@ function tableExists($table){
   function update_product_qty($qty,$p_id){
     global $db;
     $qty = (int) $qty;
-    $id  = (int)$p_id;
+    $id  = (int) $p_id;
     $sql = "UPDATE products SET quantity=quantity -'{$qty}' WHERE id = '{$id}'";
     $result = $db->query($sql);
     return($db->affected_rows() === 1 ? true : false);
+  } 
 
+  function update_product_qty_edit($qty,$p_id){
+    global $db;
+    $qty = (int) $qty;
+    $id  = (int) $p_id;
+    $sql = "UPDATE products SET quantity=quantity + (cantidad - quantity -'{$qty}') WHERE id = '{$id}'";
+    $result = $db->query($sql);
+    return($db->affected_rows() === 1 ? true : false);
   }
   /*--------------------------------------------------------------*/
   /* Function for Display Recent product Added

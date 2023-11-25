@@ -15,12 +15,12 @@ if(!$sale){
 <?php
 
   if(isset($_POST['update_sale'])){
-    $req_fields = array('title','quantity','price','total', 'date' );
+    $req_fields = array('title','quantity','price', 'date' );
     validate_fields($req_fields);
         if(empty($errors)){
           $p_id      = $db->escape((int)$product['id']);
           $s_qty     = $db->escape((int)$_POST['quantity']);
-          $s_total   = $db->escape($_POST['total']);
+          $s_total   = $db->escape($_POST['price']*$_POST['quantity']);
           $date      = $db->escape($_POST['date']);
           $s_date    = date("Y-m-d", strtotime($date));
 
@@ -29,12 +29,12 @@ if(!$sale){
           $sql .= " WHERE id ='{$sale['id']}'";
           $result = $db->query($sql);
           if( $result && $db->affected_rows() === 1){
-                    update_product_qty($s_qty,$p_id);
+            update_product_qty_edit($s_qty,$p_id);
                     $session->msg('s',"Sale updated.");
-                    redirect('edit_sale.php?id='.$sale['id'], false);
+                    redirect('sales.php', false);
                   } else {
                     $session->msg('d',' Sorry failed to updated!');
-                    redirect('sales.php', false);
+                    redirect('edit_sale.php?id='.$sale['id'], false);
                   }
         } else {
            $session->msg("d", $errors);
@@ -68,7 +68,6 @@ if(!$sale){
           <th> Product title </th>
           <th> Qty </th>
           <th> Price </th>
-          <th> Total </th>
           <th> Date</th>
           <th> Action</th>
          </thead>
@@ -83,10 +82,7 @@ if(!$sale){
                   <input type="text" class="form-control" name="quantity" value="<?php echo (int)$sale['qty']; ?>">
                 </td>
                 <td id="s_price">
-                  <input type="text" class="form-control" name="price" value="<?php echo remove_junk($product['sale_price']); ?>" >
-                </td>
-                <td>
-                  <input type="text" class="form-control" name="total" value="<?php echo remove_junk($sale['price']); ?>">
+                  <input type="text" class="form-control" name="price" value="<?php echo remove_junk($product['sale_price']); ?> " readonly>
                 </td>
                 <td id="s_date">
                   <input type="date" class="form-control datepicker" name="date" data-date-format="" value="<?php echo remove_junk($sale['date']); ?>">
